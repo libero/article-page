@@ -37,6 +37,7 @@ We released this software under the [MIT license][license]. Copyright © 2020 [e
 [Contributing guidelines]: https://github.com/libero/community/blob/master/CONTRIBUTING.md
 [eLife]: https://elifesciences.org/
 [Code of conduct]: https://libero.pub/code-of-conduct
+[Libero]: https://libero.pub/
 [Libero Community Slack]: https://libero.pub/join-slack
 [Libero logo]: https://cdn.elifesciences.org/libero/logo/libero-logo-96px.svg
 [License]: LICENSE.md
