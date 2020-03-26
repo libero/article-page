@@ -14,6 +14,7 @@ Table of contents
 -----------------
 
 1. [Development](#development)
+   1. [Running the app](#running-the-app)
 2. [Contributing](#contributing)
 3. [Getting help](#getting-help)
 4. [License](#license)
