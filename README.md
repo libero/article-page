@@ -71,13 +71,18 @@ We released this software under the [MIT license][license]. Copyright © 2020 [e
 [Build]: https://github.com/libero/article-page/actions?query=branch%3Amaster+workflow%3ACI
 [Build badge]: https://flat.badgen.net/github/checks/libero/article-page?label=build&icon=github
 [Contributing guidelines]: https://github.com/libero/community/blob/master/CONTRIBUTING.md
+[Docker]: https://www.docker.com/
+[Docker Compose]: https://docs.docker.com/compose/
 [eLife]: https://elifesciences.org/
 [Code of conduct]: https://libero.pub/code-of-conduct
+[GNU Bash]: https://www.gnu.org/software/bash/
+[GNU Make]: https://www.gnu.org/software/make/
 [Libero]: https://libero.pub/
 [Libero Community Slack]: https://libero.pub/join-slack
 [Libero logo]: https://cdn.elifesciences.org/libero/logo/libero-logo-96px.svg
 [License]: LICENSE.md
 [License badge]: https://flat.badgen.net/badge/license/MIT/blue
+[Makefile]: Makefile
 [New issue]: https://github.com/libero/publisher/issues/new/choose
 [Open issues]: https://github.com/libero/publisher/issues?q=is%3Aissue+is%3Aopen+label%3Aarticle-page
 [Open issues badge]: https://flat.badgen.net/github/label-issues/libero/publisher/article-page/open?icon=github&label=open%20issues&color=pink
