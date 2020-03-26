@@ -1,4 +1,6 @@
 /.dependabot/
 /.github/
 /.scripts/
+/build/
 /Makefile
+/node_modules/
