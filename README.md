@@ -3,6 +3,7 @@
 Article Page
 ============
 
+[![Build status][Build badge]][Build]
 [![Open issues][Open issues badge]][Open issues]
 [![License][License badge]][License]
 [![Slack][Slack badge]][Libero Community Slack]
@@ -12,9 +13,41 @@ Article Page
 Table of contents
 -----------------
 
-1. [Contributing](#contributing)
-2. [Getting help](#getting-help)
-3. [License](#license)
+1. [Development](#development)
+2. [Contributing](#contributing)
+3. [Getting help](#getting-help)
+4. [License](#license)
+
+Development
+-----------
+
+<details>
+
+<summary>Requirements</summary>
+
+- [Docker]
+- [GNU Bash]
+- [GNU Make]
+
+</details>
+
+The project contains a [Makefile] which uses [Docker Compose] for development and testing.
+
+You can find the possible commands by executing:
+
+```shell
+make help
+```
+
+### Running the app
+
+To build and run the app for development, execute:
+
+```shell
+make dev
+```
+
+The application will then sleep for 24 hours.
 
 Contributing
 ------------
@@ -34,6 +67,8 @@ License
 
 We released this software under the [MIT license][license]. Copyright © 2020 [eLife Sciences Publications, Ltd][eLife].
 
+[Build]: https://github.com/libero/article-page/actions?query=branch%3Amaster+workflow%3ACI
+[Build badge]: https://flat.badgen.net/github/checks/libero/article-page?label=build&icon=github
 [Contributing guidelines]: https://github.com/libero/community/blob/master/CONTRIBUTING.md
 [eLife]: https://elifesciences.org/
 [Code of conduct]: https://libero.pub/code-of-conduct
