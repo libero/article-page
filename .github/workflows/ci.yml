@@ -28,7 +28,6 @@ jobs:
 
       - name: Save Docker images
         run: |
-          mkdir -p docker-image-prod docker-image-dev
           docker save -o article-page-prod.tar libero/article-page:${IMAGE_TAG}
           docker save -o article-page-dev.tar libero/article-page:${IMAGE_TAG}-dev
 
@@ -69,8 +68,9 @@ jobs:
           path: images
 
       - name: Load Docker image
-        run: |
-          docker load -i images/article-page-${{ matrix.target }}.tar
+        run: docker load -i images/article-page-${{ matrix.target }}.tar
 
       - name: Run test
-        run: TARGET=${{ matrix.target}} ${{ matrix.test }}
+        run: ${{ matrix.test }}
+        env:
+          TARGET: ${{ matrix.target}}
