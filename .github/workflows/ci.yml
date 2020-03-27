@@ -71,4 +71,6 @@ jobs:
         run: docker load -i images/article-page-${{ matrix.target }}.tar
 
       - name: Run test
-        run: TARGET=${{ matrix.target}} ${{ matrix.test }}
+        run: ${{ matrix.test }}
+        env:
+          TARGET: ${{ matrix.target}}
