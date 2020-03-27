@@ -52,11 +52,12 @@ jobs:
     strategy:
       matrix:
         test:
-          - TARGET=dev .github/smoke-test.sh
-          - TARGET=prod .github/smoke-test.sh
+          - .github/smoke-test.sh
         include:
+          - target: dev
+            test: .github/smoke-test.sh
           - target: prod
-            test: TARGET=prod .github/smoke-test.sh
+            test: .github/smoke-test.sh
 
     steps:
       - uses: actions/checkout@v1
@@ -66,12 +67,12 @@ jobs:
       - name: Download Docker image artifact
         uses: actions/download-artifact@v1
         with:
-          name: article-page-${{ matrix.target || 'dev' }}
+          name: article-page-${{ matrix.target }}
           path: images
 
       - name: Load Docker image
         run: |
-          docker load -i images/article-page-${{ matrix.target || 'dev' }}.tar
+          docker load -i images/article-page-${{ matrix.target }}.tar
 
       - name: Run test
-        run: ${{ matrix.test }}
+        run: TARGET=${{ matrix.target}} ${{ matrix.test }}
