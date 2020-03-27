@@ -22,8 +22,8 @@ install: gitmodules ## Install dependencies locally
 gitmodules:
 	git submodule update --init --recursive
 
-build: ## Build the containers
-	${DOCKER_COMPOSE} build
+build: ## Build the app container
+	${DOCKER_COMPOSE} build app
 
 start: ## Start the containers
 	${DOCKER_COMPOSE} up --detach
