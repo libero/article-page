@@ -69,8 +69,7 @@ jobs:
           path: images
 
       - name: Load Docker image
-        run: |
-          docker load -i images/article-page-${{ matrix.target }}.tar
+        run: docker load -i images/article-page-${{ matrix.target }}.tar
 
       - name: Run test
         run: TARGET=${{ matrix.target}} ${{ matrix.test }}
