@@ -10,7 +10,7 @@ Article Page
 
 ⚠️ This app does not yet do anything.
 
-It's written in [TypeScript].
+It's written in [TypeScript], and uses the [Koa framework][Koa].
 
 Table of contents
 -----------------
@@ -51,7 +51,7 @@ To build and run the app for development, execute:
 make dev
 ```
 
-The application will then sleep for 24 hours.
+You can now access the app at <http://localhost:8080>.
 
 <details>
 
@@ -95,6 +95,7 @@ We released this software under the [MIT license][license]. Copyright © 2020 [e
 [Code of conduct]: https://libero.pub/code-of-conduct
 [GNU Bash]: https://www.gnu.org/software/bash/
 [GNU Make]: https://www.gnu.org/software/make/
+[Koa]: https://koajs.com/
 [Libero]: https://libero.pub/
 [Libero Community Slack]: https://libero.pub/join-slack
 [Libero logo]: https://cdn.elifesciences.org/libero/logo/libero-logo-96px.svg
