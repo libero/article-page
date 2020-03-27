@@ -26,6 +26,8 @@ CMD ["sleep", "86400"]
 FROM base AS prod
 ARG image_tag
 
+USER nobody
+
 LABEL org.opencontainers.image.revision=${image_tag} \
     org.opencontainers.image.source=https://github.com/libero/article-page
 
