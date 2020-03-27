@@ -29,22 +29,20 @@ jobs:
       - name: Save Docker images
         run: |
           mkdir -p docker-image-prod docker-image-dev
-          docker save -o docker-image-prod/article-page.tar libero/article-page:${IMAGE_TAG}
-          gzip docker-image-prod/article-page.tar
-          docker save -o docker-image-dev/article-page.tar libero/article-page:${IMAGE_TAG}-dev
-          gzip docker-image-dev/article-page.tar
+          docker save -o article-page-prod.tar libero/article-page:${IMAGE_TAG}
+          docker save -o article-page-dev.tar libero/article-page:${IMAGE_TAG}-dev
 
       - name: Upload prod Docker image
         uses: actions/upload-artifact@v1
         with:
-          name: docker-image-prod
-          path: docker-image-prod
+          name: prod image
+          path: article-page-prod.tar
 
       - name: Upload dev Docker image
         uses: actions/upload-artifact@v1
         with:
-          name: docker-image-dev
-          path: docker-image-dev
+          name: dev image
+          path: article-page-dev.tar
 
   test:
 
@@ -68,12 +66,11 @@ jobs:
       - name: Download Docker image artifact
         uses: actions/download-artifact@v1
         with:
-          name: docker-image-${{ matrix.target || 'dev' }}
+          name: ${{ matrix.target || 'dev' }} image
 
       - name: Load Docker image
         run: |
-          gunzip docker-image-${{ matrix.target || 'dev' }}/article-page.tar.gz
-          docker load -i docker-image-${{ matrix.target || 'dev' }}/article-page.tar
+          docker load -i article-page-${{ matrix.target || 'dev' }}.tar
 
       - name: Run test
         run: ${{ matrix.test }}
