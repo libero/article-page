@@ -51,13 +51,11 @@ jobs:
 
     strategy:
       matrix:
+        target:
+          - dev
+          - prod
         test:
           - .github/smoke-test.sh
-        include:
-          - target: dev
-            test: .github/smoke-test.sh
-          - target: prod
-            test: .github/smoke-test.sh
 
     steps:
       - uses: actions/checkout@v1
