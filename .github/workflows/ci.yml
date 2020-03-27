@@ -28,7 +28,6 @@ jobs:
 
       - name: Save Docker images
         run: |
-          mkdir -p docker-image-prod docker-image-dev
           docker save -o article-page-prod.tar libero/article-page:${IMAGE_TAG}
           docker save -o article-page-dev.tar libero/article-page:${IMAGE_TAG}-dev
 
