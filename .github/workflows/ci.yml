@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches:
+      - master
+
+env:
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Build Docker images
+        run: |
+          TARGET=prod make build
+          TARGET=dev make build
+      - name: Save Docker images
+        run: |
+          mkdir -p docker-image-prod docker-image-dev
+          docker save -o article-page-prod.tar libero/article-page:${IMAGE_TAG}
+          docker save -o article-page-dev.tar libero/article-page:${IMAGE_TAG}-dev
+      - name: Upload prod Docker image
+        uses: actions/upload-artifact@v1
+        with:
+          name: prod image
+          path: article-page-prod.tar
+
+      - name: Upload dev Docker image
+        uses: actions/upload-artifact@v1
+        with:
+          name: dev image
+          path: article-page-dev.tar
+
+  test:
+
+    needs: build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        test:
+          - TARGET=dev .github/smoke-test.sh
+          - TARGET=prod .github/smoke-test.sh
+        include:
+          - target: prod
+            test: TARGET=prod .github/smoke-test.sh
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Download Docker image artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: ${{ matrix.target || 'dev' }} image
+
+      - name: Load Docker image
+        run: |
+          docker load -i article-page-${{ matrix.target || 'dev' }}.tar
+      - name: Run test
+        run: ${{ matrix.test }}
