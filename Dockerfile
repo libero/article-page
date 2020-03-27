@@ -44,7 +44,10 @@ HEALTHCHECK --interval=5s --timeout=1s \
 FROM base AS dev
 ENV NODE_ENV=development
 
-COPY tsconfig.json \
+COPY .eslintignore \
+    .eslintrc.js \
+    tsconfig.json \
+    tsconfig.lint.json \
     ./
 COPY --from=npm-dev /app/ .
 COPY src/ src/

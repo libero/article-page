@@ -6,7 +6,10 @@ services:
       target: dev
     image: libero/article-page:${IMAGE_TAG:-master}-dev
     volumes:
+      - ../.eslintignore:/app/.eslintignore
+      - ../.eslintrc.js:/app/.eslintrc.js
       - ../src/:/app/src
       - ../package.json:/app/package.json
       - ../package-lock.json:/app/package-lock.json
       - ../tsconfig.json:/app/tsconfig.json
+      - ../tsconfig.lint.json:/app/tsconfig.lint.json
