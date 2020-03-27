@@ -35,13 +35,13 @@ jobs:
       - name: Upload prod Docker image
         uses: actions/upload-artifact@v1
         with:
-          name: prod image
+          name: article-page-prod.tar
           path: article-page-prod.tar
 
       - name: Upload dev Docker image
         uses: actions/upload-artifact@v1
         with:
-          name: dev image
+          name: article-page-dev.tar
           path: article-page-dev.tar
 
   test:
@@ -66,7 +66,7 @@ jobs:
       - name: Download Docker image artifact
         uses: actions/download-artifact@v1
         with:
-          name: ${{ matrix.target || 'dev' }} image
+          name: article-page-${{ matrix.target || 'dev' }}.tar
 
       - name: Load Docker image
         run: |
