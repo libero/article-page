@@ -56,9 +56,12 @@ jobs:
         test:
           - .github/smoke-test.sh
           - make lint
+          - make test
         exclude:
           - target: prod
             test: make lint
+          - target: prod
+            test: make test
 
     steps:
       - uses: actions/checkout@v1

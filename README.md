@@ -17,7 +17,8 @@ Table of contents
 
 1. [Development](#development)
    1. [Running the app](#running-the-app)
-   2. [Linting](#linting)
+   2. [Running the tests](#running-the-tests)
+   3. [Linting](#linting)
 2. [Contributing](#contributing)
 3. [Getting help](#getting-help)
 4. [License](#license)
@@ -69,6 +70,14 @@ before running further commands.
 
 </details>
 
+### Running the tests
+
+We use [Jest] to test the app. You can run it by executing: 
+
+```shell
+make test
+```
+
 ### Linting
 
 We lint the app with [ESLint]. You can run it by:
@@ -111,6 +120,7 @@ We released this software under the [MIT license][license]. Copyright © 2020 [e
 [Code of conduct]: https://libero.pub/code-of-conduct
 [GNU Bash]: https://www.gnu.org/software/bash/
 [GNU Make]: https://www.gnu.org/software/make/
+[Jest]: https://jestjs.io/
 [Libero]: https://libero.pub/
 [Libero Community Slack]: https://libero.pub/join-slack
 [Libero logo]: https://cdn.elifesciences.org/libero/logo/libero-logo-96px.svg
