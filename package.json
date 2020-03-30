@@ -1,6 +1,7 @@
 {
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "@types/jest": "^25.1.4",
     "@types/node": "^12.12.32",
