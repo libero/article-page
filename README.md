@@ -10,6 +10,8 @@ Article Page
 
 ⚠️ This app does not yet do anything.
 
+It's written in [TypeScript].
+
 Table of contents
 -----------------
 
@@ -29,6 +31,7 @@ Development
 - [Docker]
 - [GNU Bash]
 - [GNU Make]
+- [Node.js]
 
 </details>
 
@@ -49,6 +52,21 @@ make dev
 ```
 
 The application will then sleep for 24 hours.
+
+<details>
+
+<summary>Rebuilding the container</summary>
+
+Code is attached to the containers as volumes so most updates are visible without a need to rebuild the container.
+However, changes to NPM dependencies, for example, require a rebuild. So you may need to execute
+
+```shell
+make build
+```
+
+before running further commands.
+
+</details>
 
 Contributing
 ------------
@@ -84,6 +102,8 @@ We released this software under the [MIT license][license]. Copyright © 2020 [e
 [License badge]: https://flat.badgen.net/badge/license/MIT/blue
 [Makefile]: Makefile
 [New issue]: https://github.com/libero/publisher/issues/new/choose
+[Node.js]: https://nodejs.org/
 [Open issues]: https://github.com/libero/publisher/issues?q=is%3Aissue+is%3Aopen+label%3Aarticle-page
 [Open issues badge]: https://flat.badgen.net/github/label-issues/libero/publisher/article-page/open?icon=github&label=open%20issues&color=pink
 [Slack badge]: https://flat.badgen.net/badge/icon/libero-community?icon=slack&label=slack&color=orange
+[TypeScript]: https://www.typescriptlang.org/
