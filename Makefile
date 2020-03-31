@@ -1,5 +1,5 @@
 .DEFAULT_GOAL = help
-.PHONY: help install gitmodules build start stop wait-healthy sh exec logs watch test test\:mutation run dev prod
+.PHONY: help install gitmodules build start stop wait-healthy sh exec logs watch test* run dev prod
 
 SHELL = /usr/bin/env bash
 
