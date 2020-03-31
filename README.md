@@ -89,7 +89,7 @@ make lint
 You can fix problems, where possible, by executing:
 
 ```shell
-make fix
+make lint:fix
 ```
 
 Contributing
