@@ -55,9 +55,12 @@ jobs:
           - prod
         test:
           - .github/smoke-test.sh
+          - make lint
           - make test
           - make test:mutation
         exclude:
+          - target: prod
+            test: make lint
           - target: prod
             test: make test
           - target: prod

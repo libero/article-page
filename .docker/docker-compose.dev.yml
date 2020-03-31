@@ -6,6 +6,8 @@ services:
       target: dev
     image: libero/article-page:${IMAGE_TAG:-master}-dev
     volumes:
+      - ../.eslintignore:/app/.eslintignore
+      - ../.eslintrc.js:/app/.eslintrc.js
       - ../jest.config.js:/app/jest.config.js
       - ../package.json:/app/package.json
       - ../package-lock.json:/app/package-lock.json
@@ -13,3 +15,4 @@ services:
       - ../stryker.conf.json:/app/stryker.conf.json
       - ../test/:/app/test
       - ../tsconfig.json:/app/tsconfig.json
+      - ../tsconfig.lint.json:/app/tsconfig.lint.json
