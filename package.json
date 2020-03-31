@@ -9,6 +9,12 @@
     "@types/koa": "^2.11.3",
     "@types/node": "^12.12.34",
     "@types/supertest": "^2.0.8",
+    "@typescript-eslint/eslint-plugin": "^2.25.0",
+    "@typescript-eslint/parser": "^2.25.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.19.1",
     "jest": "^25.2.4",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2",
@@ -18,6 +24,8 @@
   },
   "scripts": {
     "build": "tsc",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:fix": "eslint . --fix --ext .js,.ts",
     "start": "node ./build/index.js",
     "start:dev": "nodemon --exec 'node --require ts-node/register ./src/index.ts' --ext .js,.json,.ts",
     "test": "jest --silent"

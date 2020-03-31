@@ -1,5 +1,5 @@
 .DEFAULT_GOAL = help
-.PHONY: help install gitmodules build start stop wait-healthy sh exec logs watch test run dev prod
+.PHONY: help install gitmodules build start stop wait-healthy sh exec logs watch lint* test run dev prod
 
 SHELL = /usr/bin/env bash
 
@@ -15,7 +15,7 @@ export IMAGE_TAG
 export TARGET
 
 help: ## Display this help text
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_\\:-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | sed 's/\\:/:/g' | awk 'BEGIN {FS = ":[^:]*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 install: node_modules gitmodules ## Install dependencies locally
 
@@ -61,6 +61,14 @@ logs: ## Show the containers' logs
 
 watch: ## Follow the containers' logs
 	${DOCKER_COMPOSE} logs --follow
+
+lint: export TARGET = dev
+lint: ## Lint the code
+	${DOCKER_COMPOSE} run --rm app npm run lint
+
+lint\:fix: export TARGET = dev
+lint\:fix: ## Fix linting issues in the code
+	${DOCKER_COMPOSE} run --rm app npm run lint:fix
 
 test: export TARGET = dev
 test: ## Run the tests

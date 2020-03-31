@@ -18,6 +18,7 @@ Table of contents
 1. [Development](#development)
    1. [Running the app](#running-the-app)
    2. [Running the tests](#running-the-tests)
+   3. [Linting](#linting)
 2. [Contributing](#contributing)
 3. [Getting help](#getting-help)
 4. [License](#license)
@@ -77,6 +78,20 @@ We use [Jest] to test the app. You can run it by executing:
 make test
 ```
 
+### Linting
+
+We lint the app with [ESLint]. You can run it by:
+
+```shell
+make lint
+```
+
+You can fix problems, where possible, by executing:
+
+```shell
+make lint:fix
+```
+
 Contributing
 ------------
 
@@ -101,6 +116,7 @@ We released this software under the [MIT license][license]. Copyright © 2020 [e
 [Docker]: https://www.docker.com/
 [Docker Compose]: https://docs.docker.com/compose/
 [eLife]: https://elifesciences.org/
+[ESLint]: https://eslint.org/
 [Code of conduct]: https://libero.pub/code-of-conduct
 [GNU Bash]: https://www.gnu.org/software/bash/
 [GNU Make]: https://www.gnu.org/software/make/
