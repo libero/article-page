@@ -7,8 +7,9 @@ services:
     image: libero/article-page:${IMAGE_TAG:-master}-dev
     volumes:
       - ../jest.config.js:/app/jest.config.js
-      - ../src/:/app/src
       - ../package.json:/app/package.json
       - ../package-lock.json:/app/package-lock.json
+      - ../src/:/app/src
+      - ../stryker.conf.js:/app/stryker.conf.js
       - ../test/:/app/test
       - ../tsconfig.json:/app/tsconfig.json

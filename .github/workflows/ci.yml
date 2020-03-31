@@ -56,9 +56,12 @@ jobs:
         test:
           - .github/smoke-test.sh
           - make test
+          - make test:mutation
         exclude:
           - target: prod
             test: make test
+          - target: prod
+            test: make test:mutation
 
     steps:
       - uses: actions/checkout@v1

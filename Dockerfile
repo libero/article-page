@@ -46,6 +46,7 @@ FROM base AS dev
 ENV NODE_ENV=development
 
 COPY jest.config.js \
+    stryker.conf.json \
     tsconfig.json \
     ./
 COPY --from=npm-dev /app/ .
