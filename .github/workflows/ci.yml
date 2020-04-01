@@ -102,7 +102,7 @@ jobs:
           path: images
 
       - name: Load Docker image
-        run: docker load -i images/article-page-${{ matrix.target }}.tar
+        run: docker load -i images/article-page-prod.tar
 
       - name: Push Docker image
         if: github.ref == 'refs/heads/master'
