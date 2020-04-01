@@ -1,5 +1,5 @@
 .DEFAULT_GOAL = help
-.PHONY: help install gitmodules build start stop wait-healthy sh exec logs watch lint* test run dev prod
+.PHONY: help install gitmodules build start stop wait-healthy sh exec logs watch lint* test* run dev prod
 
 SHELL = /usr/bin/env bash
 
@@ -73,6 +73,10 @@ lint\:fix: ## Fix linting issues in the code
 test: export TARGET = dev
 test: ## Run the tests
 	${DOCKER_COMPOSE} run --rm app npm run test
+
+test\:mutation: export TARGET = dev
+test\:mutation: ## Run the mutation tests
+	${DOCKER_COMPOSE} run --rm app npm run test:mutation; ${STOP}
 
 run:
 	${DOCKER_COMPOSE} up --abort-on-container-exit --exit-code-from app; ${STOP}

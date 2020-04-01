@@ -5,6 +5,9 @@
     "koa": "^2.11.0"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^3.1.0",
+    "@stryker-mutator/jest-runner": "^3.1.0",
+    "@stryker-mutator/typescript": "^3.1.0",
     "@types/jest": "^25.1.4",
     "@types/koa": "^2.11.3",
     "@types/node": "^12.12.34",
@@ -28,6 +31,7 @@
     "lint:fix": "eslint . --fix --ext .js,.ts",
     "start": "node ./build/index.js",
     "start:dev": "nodemon --exec 'node --require ts-node/register ./src/index.ts' --ext .js,.json,.ts",
-    "test": "jest --silent"
+    "test": "jest --silent",
+    "test:mutation": "stryker run"
   }
 }

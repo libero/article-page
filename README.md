@@ -18,6 +18,7 @@ Table of contents
 1. [Development](#development)
    1. [Running the app](#running-the-app)
    2. [Running the tests](#running-the-tests)
+      1. [Mutation tests](#mutation-tests)
    3. [Linting](#linting)
 2. [Contributing](#contributing)
 3. [Getting help](#getting-help)
@@ -78,6 +79,15 @@ We use [Jest] to test the app. You can run it by executing:
 make test
 ```
 
+#### Mutation tests
+
+We use [Stryker] for [mutation testing], which makes sure that the Jest tests are effective. You can run it by
+executing: 
+                                                                                             
+```shell
+make test:mutation
+```
+
 ### Linting
 
 We lint the app with [ESLint]. You can run it by:
@@ -128,9 +138,11 @@ We released this software under the [MIT license][license]. Copyright © 2020 [e
 [License]: LICENSE.md
 [License badge]: https://flat.badgen.net/badge/license/MIT/blue
 [Makefile]: Makefile
+[Mutation testing]: https://en.wikipedia.org/wiki/Mutation_testing
 [New issue]: https://github.com/libero/publisher/issues/new/choose
 [Node.js]: https://nodejs.org/
 [Open issues]: https://github.com/libero/publisher/issues?q=is%3Aissue+is%3Aopen+label%3Aarticle-page
 [Open issues badge]: https://flat.badgen.net/github/label-issues/libero/publisher/article-page/open?icon=github&label=open%20issues&color=pink
 [Slack badge]: https://flat.badgen.net/badge/icon/libero-community?icon=slack&label=slack&color=orange
+[Stryker]: https://stryker-mutator.io/
 [TypeScript]: https://www.typescriptlang.org/

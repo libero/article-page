@@ -12,6 +12,7 @@ services:
       - ../package.json:/app/package.json
       - ../package-lock.json:/app/package-lock.json
       - ../src/:/app/src
+      - ../stryker.conf.json:/app/stryker.conf.json
       - ../test/:/app/test
       - ../tsconfig.json:/app/tsconfig.json
       - ../tsconfig.lint.json:/app/tsconfig.lint.json
