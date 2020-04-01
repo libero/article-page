@@ -84,3 +84,29 @@ jobs:
         run: ${{ matrix.test }}
         env:
           TARGET: ${{ matrix.target}}
+
+  push:
+
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Download Docker image artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: article-page-prod
+          path: images
+
+      - name: Load Docker image
+        run: docker load -i images/article-page-${{ matrix.target }}.tar
+
+      - name: Push Docker image
+        if: github.ref == 'refs/heads/master'
+        run: .scripts/github/retag-and-push.sh article-page ${IMAGE_TAG}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
