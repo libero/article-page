@@ -1,15 +1,24 @@
 {
   "private": true,
   "dependencies": {
+    "@koa/router": "^8.0.8",
+    "@popeindustries/lit-html-server": "^3.0.0",
+    "http-errors": "^1.7.3",
     "http-status-codes": "^1.4.0",
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "koa-compose": "^4.1.0"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^3.1.0",
     "@stryker-mutator/jest-runner": "^3.1.0",
     "@stryker-mutator/typescript": "^3.1.0",
+    "@testing-library/jest-dom": "^5.3.0",
+    "@types/http-errors": "^1.6.3",
     "@types/jest": "^25.1.4",
+    "@types/jsdom": "^16.2.0",
     "@types/koa": "^2.11.3",
+    "@types/koa-compose": "^3.2.5",
+    "@types/koa__router": "^8.0.2",
     "@types/node": "^12.12.34",
     "@types/supertest": "^2.0.8",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
@@ -19,6 +28,8 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.19.1",
     "jest": "^25.2.4",
+    "jsdom": "^16.2.2",
+    "mock-http": "^1.0.2",
     "nodemon": "^2.0.2",
     "supertest": "^4.0.2",
     "ts-jest": "^25.3.0",
